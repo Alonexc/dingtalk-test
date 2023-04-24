@@ -1,18 +1,19 @@
 name: golangci-lint
+
 on:
   push:
     branches:
       - master
   pull_request:
     branches:
-      - master
-      
+      - '*'
+
 jobs:
   golangci:
     strategy:
       matrix:
         go: [1.17]
-        os: [macos-latest, windows-latest]
+        os: [macos-latest, ubuntu-latest]
     name: lint
     runs-on: ${{ matrix.os }}
     steps:
